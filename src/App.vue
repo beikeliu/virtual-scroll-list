@@ -9,7 +9,7 @@ onMounted(() => {
 
 const getData = () => {
   const data = [];
-  for (let n = 0; n < 100000; n++) {
+  for (let n = 0; n < 300000; n++) {
     data.push(n + 1);
   }
   return data;
@@ -24,7 +24,7 @@ const bind = {
 <template>
   <section>
     <header>
-      本次渲染花费 <b>{{ time }}</b> ms
+      本次放了30万条数据，共花费 <b>{{ time }}</b> ms
     </header>
     <VirtualScroll v-bind="bind" />
   </section>
