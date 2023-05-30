@@ -6,12 +6,27 @@ let start = new Date();
 onMounted(() => {
   time.value = new Date() - start;
 });
+
+const getData = () => {
+  const data = [];
+  for (let n = 0; n < 100000; n++) {
+    data.push(n + 1);
+  }
+  return data;
+};
+const bind = {
+  itemHeight: 25, // 每一项的高度
+  listHeight: 500, // 容器高度
+  data: getData(), // 数据
+};
 </script>
 
 <template>
   <section>
-    <header>本次渲染花费 <b>{{ time }}</b> ms</header>
-    <VirtualScroll />
+    <header>
+      本次渲染花费 <b>{{ time }}</b> ms
+    </header>
+    <VirtualScroll v-bind="bind" />
   </section>
 </template>
 
