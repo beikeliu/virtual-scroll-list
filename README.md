@@ -1,7 +1,3 @@
-# Vue 3 + Vite
-
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
-
-## Recommended IDE Setup
-
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+1. 通过滚动条的高度，计算出用户能看到的数据，**slice**出来。
+2. 然后通过**translateY**，位移一下当前的数据，将上面本应该有的数据地方占上空间。
+3. 由于我们实际渲染数据比原数据要小的多，这个时候滚动条样式不够，我们通过**minHeight**来解决。
