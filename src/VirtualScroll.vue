@@ -12,8 +12,9 @@ const props = defineProps({
 const translateY = ref(0);
 const container = ref(null);
 const renderItems = ref([]);
-
-renderItems.value = props.data.slice(0, 25);
+// 要渲染的行数
+const rows = Number.parseInt(props.listHeight / props.itemHeight);
+renderItems.value = props.data.slice(0, rows);
 onMounted(() => {
   container.value.addEventListener("scroll", debounce(onScroll, 20));
 });
@@ -25,8 +26,6 @@ function onScroll(e) {
   translateY.value = scrollTop;
   // 计算开始行数： 滚动高度除以每行的高度就等于从第几行开始
   const start = Number.parseInt(scrollTop / props.itemHeight);
-  // 要渲染的行数
-  const rows = Number.parseInt(props.listHeight / props.itemHeight);
   // 滚动后应渲染计算出的开始行数 到 开始行数+要渲染的行数
   renderItems.value = props.data.slice(start, start + rows);
 }
